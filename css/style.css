@@ -1,0 +1,401 @@
+/* 공통 */
+body {
+  font-size: 0.8rem;
+  margin: 0px;
+  padding-top: 80px; /* 할인 팝업 고정으로 인한 전체 상단 여백 확보 */
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+.footer-box a {
+  color: white;
+}
+
+.nav a {
+  color: black;
+}
+
+/* 할인 팝업 */
+.discount-pop-up {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  color: white;
+  height: 30px;
+  z-index: 1000;
+}
+
+.discount-pop-up span {
+  display: inline-block;
+  margin-left: 8px;
+}
+
+.discount-pop-up a {
+  text-decoration: underline;
+}
+
+/* 메뉴바 */
+.nav {
+  position: fixed;
+  top: 30px; /* 할인 팝업 아래에 위치 */
+  left: 0;
+  width: 100%;
+  background-color: white;
+  z-index: 999;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 30px;
+  padding: 10px 30px;
+  flex-wrap: wrap;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.nav-title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.nav-menu {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-menu__button button {
+  all: unset;
+  margin-right: 50px;
+}
+
+.nav-menu__item {
+  margin: 0px 50px;
+}
+
+.nav-menu__item a {
+  color: black;
+}
+
+.nav-menu__button:hover {
+  font-weight: bold;
+}
+
+.nav-item a {
+  color: black;
+  margin-left: 20px;
+}
+
+/* 컬렉션 영역 */
+.collection-section {
+  display: flex;
+  height: 90vh;
+  width: 100%;
+}
+
+.collection {
+  flex: 1;
+  background-size: cover;
+  background-position: top;
+  position: relative;
+  transition: 0.3s ease;
+}
+
+.collection.left {
+  background-image: url("../images/women-collection.jpg");
+}
+
+.collection.right {
+  background-image: url("../images/man-collection.jpg");
+}
+
+.collection:hover {
+  filter: brightness(0.85);
+}
+
+.collection .overlay {
+  position: absolute;
+  bottom: 50px;
+  left: 50px;
+  color: white;
+  font-size: 32px;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* 푸터 */
+.footer-box {
+  background-color: rgb(0, 0, 0);
+  color: white;
+  height: 600px;
+}
+
+.footer__logo {
+  width: 80%;
+  margin: 0 auto;
+  font-size: 11rem;
+  text-align: center;
+  border-bottom: 1px solid gray;
+}
+
+.footer__menu {
+  width: 80%;
+  margin: 0 auto;
+  padding: 50px 0 20px 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.footer__section {
+  margin-right: 100px;
+}
+
+.footer__section div {
+  margin-bottom: 10px;
+}
+
+.container-title {
+  font-weight: bold;
+}
+
+.footer-location {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.go-home {
+  display: flex;
+}
+
+.go-home div {
+  margin: 0 80px 0 50px;
+}
+
+.delivery-country {
+  margin-right: 50px;
+}
+
+.footer-second-box {
+  background-color: rgb(56, 56, 56);
+  height: 150px;
+  padding-top: 50px;
+  display: flex;
+  justify-content: center;
+  color: white;
+}
+
+.terms-of-use, .address {
+  margin: 0 150px;
+}
+
+.terms-of-use div, .address div {
+  margin: 10px 0;
+}
+
+/* 전체 오버레이 배경 */
+.overlay-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  z-index: 9999;
+  display: none; /* 처음엔 숨김 */
+  flex-direction: column;
+  padding: 20px 40px;
+  box-sizing: border-box;
+}
+
+/* 상단: 닫기 버튼 + 성별 탭 */
+.overlay-menu__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+/* 닫기 버튼 */
+.overlay-menu__close {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* 성별 탭 */
+.overlay-menu__nav span {
+  margin: 0 15px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+/* 내부 메뉴 3열 */
+.overlay-menu__inner {
+  display: flex;
+  justify-content: flex-start;
+  gap: 100px;
+}
+
+/* 각 컬럼 */
+.overlay-menu__column {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 0.9rem;
+}
+
+.overlay-menu__column strong {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* 로그인 모달 */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal__content {
+  background: white;
+  padding: 30px;
+  width: 350px;
+  border-radius: 6px;
+  position: relative;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.modal__content h2 {
+  margin-bottom: 20px;
+  color: black;
+}
+
+.modal__content input {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+}
+
+.modal__submit {
+  width: 100%;
+  padding: 10px;
+  background: black;
+  color: white;
+  border: none;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.modal__close {
+  position: absolute;
+  top: 5px; right: 5px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.modal__title {
+  margin-bottom: 15px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid rgb(224, 224, 224);
+  display: flex;
+  justify-content: space-between;
+}
+
+.modal__title a {
+  color: rgb(175, 175, 175);
+}
+
+.login__label {
+  color: black;
+  font-size: 0.75rem;
+  font-weight: bold;
+  display: block;
+  margin-top: 10px;
+}
+
+input[type="text"], input[type="password"] {
+  width: 95%;
+  background-color: rgb(223, 223, 223);
+  border: none;
+}
+
+.login__info__find {
+  margin: 15px 0;
+  display: flex;
+  justify-content: flex-start;
+  font-size: 0.7rem;
+}
+
+.login__info__find__id {
+  margin-right: 15px;
+}
+
+.login__info__find a {
+  color: black;
+  text-decoration: underline;
+}
+
+.login__sns {
+  font-size: 0.7rem;
+  margin-bottom: 10px;
+}
+
+.login__sns__method {
+  display: flex;
+}
+
+.login__sns__method button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: white;
+  width: 150px;
+  height: 30px;
+  border: 1px solid grey;
+  padding: 0 10px;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+
+#login__kakao {
+  margin-right: 30px;
+}
+
+.guest__order__inquiry {
+  margin-top: 10px;
+}
+
+.guest__order__inquiry a {
+  font-size: 0.7rem;
+  color: black;
+  text-decoration: underline;
+}
+
+.signup__label {
+  display: block;
+  margin-top: 10px;
+  color: black;
+  font-size: 0.75rem;
+  font-weight: bold;
+}

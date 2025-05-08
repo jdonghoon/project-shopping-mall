@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <title>COS 스타일 쇼핑몰</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+  <header>
+     <div class="discount-pop-up">
+        <div>특정 상품 최대 30% 할인 |</div>
+        <span><a href="#">여성 쇼핑하기</a></span>
+        <span><a href="#">남성 쇼핑하기</a></span>
+     </div>
+     <div class="nav">
+        <div class="nav-menu">
+          <div class="nav-menu__button">
+            <button id="menu-open" class="nav-menu__button">
+              <i class="fa-solid fa-grip-lines"></i>
+            </button>
+          </div>
+          <div class="nav-menu__item nav-menu__item--women">
+            <a href="#">여성</a>
+          </div>
+          <div class="nav-menu__item nav-menu__item--men">
+            <a href="#">남성</a>
+          </div>
+        </div>
+        <div class="nav-title">
+          <img src="../images/cos-title.jpg" width="80" alt="COS 로고">
+        </div>
+        <div class="nav-item">
+          <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
+          <!-- 로그인이 안 되어 있으면 로그인으로 이동 -->
+          <a href="#" id="login-btn"><i class="fa-regular fa-user"></i></a> 
+          <a href="#"><i class="fa-regular fa-heart"></i></a>
+          <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
+        </div>
+     </div>
+  </header>
+
+  <section class="collection-section">
+    <div class="collection left">
+      <a href="product_list.html?category=women">
+        <div class="overlay">
+          <span>여성 컬렉션</span>
+        </div>
+      </a>
+    </div>
+    <div class="collection right">
+      <a href="product_list.html?category=men">
+        <div class="overlay">
+          <span>남성 컬렉션</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-box">
+      <div class="footer__logo">cos</div>
+      <div class="footer__menu">
+        <div class="footer__section footer__section--customer">
+          <div class="container-title">CUSTOMER SERVICE</div>
+          <div><a href="#">고객 서비스</a></div>
+          <div><a href="#">고객 문의</a></div>
+          <div><a href="#">매장 찾기</a></div>
+          <div><a href="#">배송 정보</a></div>
+          <div><a href="#">반품 및 환불</a></div>
+          <div><a href="#">제품관리</a></div>
+          <div><a href="#">핏 가이드</a></div>
+        </div>
+        <div class="footer__section footer__section--about">
+          <div class="container-title">ABOUT COS</div>
+          <div><a href="#">매거진</a></div>
+          <div><a href="#">디자인과 제작 과정</a></div>
+          <div><a href="#">협력업체</a></div>
+          <div><a href="#">다양성 & 포용성</a></div>
+          <div><a href="#">채용 정보</a></div>
+          <div><a href="#">프레스 문의</a></div>
+        </div>
+        <div class="footer__section footer__section--social">
+          <div class="container-title">FOLLOW US</div>
+          <div><a href="#">KAKAOTALK</a></div>
+          <div><a href="#">FACEBOOK</a></div>
+          <div><a href="#">INSTAGRAM</a></div>
+        </div>
+      </div>
+      <div class="footer-location">
+        <div class="go-home">
+          <div>COS</div>
+          <div><a href="#">HOME</a></div>
+        </div>
+        <div class="delivery-country">
+          <a href="#">배송국가 > 나라</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-second-box">
+      <div class="terms-of-use">
+        <div><a href="#">이용약관</a></div>
+        <div><a href="#">개인정보처리방침</a></div>
+        <div><a href="#">현대백화점 그룹</a></div>
+      </div>
+      <div class="address">
+        <div>주식회사 전동훈 : 전동훈 군산시 조촌동</div>
+        <div>사업자등록번호 : 111-11-11111</div>
+        <div>고객센터 : 010-4299-5648</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 오버레이 메뉴 -->
+<div id="overlay-menu" class="overlay-menu">
+  <div class="overlay-menu__header">
+    <button id="menu-close" class="overlay-menu__close">&times;</button>
+    <div class="overlay-menu__nav">
+      <span>여성</span>
+      <span>남성</span>
+    </div>
+  </div>
+
+  <div class="overlay-menu__inner">
+    <div class="overlay-menu__column">
+      <strong>CLOTHING</strong>
+      <div>신상품</div>
+      <div>트렌딩 나우</div>
+      <div>셔츠 & 블라우스</div>
+      <div>니트웨어 & 가디건</div>
+      <div>진</div>
+    </div>
+    <div class="overlay-menu__column">
+      <strong>ACCESSORIES</strong>
+      <div>가방</div>
+      <div>신발</div>
+      <div>모자 & 하이브리드</div>
+    </div>
+    <div class="overlay-menu__column">
+      <strong>EDITS</strong>
+      <div>2025 봄 여름 컬렉션</div>
+      <div>리넨 컬렉션</div>
+      <div>온라인 익스클루시브</div>
+    </div>
+  </div>
+</div>
+
+<!-- 로그인 모달 -->
+<div class="modal" id="login-modal">
+  <div class="modal__content">
+    <button class="modal__close" id="login-close">&times;</button>
+    <div class="modal__title">
+      <div>로그인</div>
+      <div><a href="#" id="go-signup">회원가입</a></div>
+    </div>
+    
+    <label for="login-id" class="login__label">아이디 또는 이메일</label>
+    <input type="text" id="login-id" name="login-id">
+
+    <label for="login-pw" class="login__label">비밀번호</label>
+    <input type="password" id="login-pw" name="login-pw">
+
+    <button class="modal__submit">로그인</button>
+    <div class="login__info__find">
+      <div class="login__info__find__id"><a>아이디 찾기</a></div>
+      <div class="login__info__find__password"><a>비밀번호 찾기</a></div>
+    </div>
+    <div class="login__sns">SNS 계정을 연동해 간편하게 로그인해보세요</div>
+    <div class="login__sns__method">
+      <button id="login__kakao">
+        <img src="../images/kakao.png" width="15px;">카카오톡
+      </button>
+      <button id="login__naver">
+        <img src="../images/naver.png" width="15px;">네이버
+      </button>
+    </div>
+    <div class="guest__order__inquiry"><a>비회원주문조회</a></div>
+  </div>
+</div>
+
+<!-- 회원가입 모달 -->
+<div class="modal" id="signup-modal">
+  <div class="modal__content">
+    <button class="modal__close" id="signup-close">&times;</button>
+    <div class="modal__title">
+      <div>회원가입</div>
+    </div>
+
+    <form id="signup-form">
+      <label class="signup__label" for="signup-username">아이디</label>
+      <input type="text" id="signup-username" required>
+
+      <label class="signup__label" for="signup-email">이메일</label>
+      <input type="email" id="signup-email" required>
+
+      <label class="signup__label" for="signup-password">비밀번호</label>
+      <input type="password" id="signup-password" required>
+
+      <label class="signup__label" for="signup-confirm">비밀번호 확인</label>
+      <input type="password" id="signup-confirm" required>
+
+      <label class="signup__label" for="signup-username">전화번호</label>
+      <input type="text" id="signup-username" required>
+
+      <button type="submit" class="modal__submit">가입하기</button>
+    </form>
+  </div>
+</div>
+
+<script>
+  const loginBtn = document.getElementById("login-btn");
+  const loginModal = document.getElementById("login-modal");
+  const loginClose = document.getElementById("login-close");
+
+  const signupModal = document.getElementById("signup-modal");
+  const signupClose = document.getElementById("signup-close");
+  const goSignup = document.getElementById("go-signup");
+
+  // 로그인 모달 열기
+  loginBtn.addEventListener("click", () => {
+    loginModal.style.display = "flex";
+  });
+
+  // 로그인 모달 닫기
+  loginClose.addEventListener("click", () => {
+    loginModal.style.display = "none";
+  });
+
+  // 바깥 영역 클릭 시 닫기
+  window.addEventListener("click", (e) => {
+    if (e.target === loginModal) loginModal.style.display = "none";
+    if (e.target === signupModal) signupModal.style.display = "none";
+  });
+
+  // 로그인 → 회원가입 이동
+  goSignup.addEventListener("click", (e) => {
+    e.preventDefault();
+    loginModal.style.display = "none";
+    signupModal.style.display = "flex";
+  });
+
+  // 회원가입 모달 닫기
+  signupClose.addEventListener("click", () => {
+    signupModal.style.display = "none";
+  });
+</script>
+
+</body>
+</html>
