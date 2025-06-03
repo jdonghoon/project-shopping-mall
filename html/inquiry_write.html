@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>1:1 문의 작성 | COS 스타일 쇼핑몰</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <script src="../js/common.js" defer></script>
+</head>
+<body>
+    <!-- 헤더 (include 또는 fetch로 불러오는 방식 가능) -->
+    <div id="header"></div>
+
+    <main class="mypage">
+  <div class="mypage-container">
+    <!-- 좌측 네비게이션 -->
+    <nav class="mypage-nav">
+      <h2>My COS</h2>
+      <ul>
+        <li><a href="my_page.html">회원정보</a></li>
+        <li><a href="order_list.html">주문/배송</a></li>
+        <li><a href="wishlist.html">위시리스트</a></li>
+        <li><a href="address_manage.html">배송지관리</a></li>
+        <li class="active"><a href="inquiry_list.html">1:1 문의</a></li>
+        <li><a href="#" id="logoutBtn">로그아웃</a></li>
+      </ul>
+    </nav>
+
+    <!-- 문의 작성 영역 -->
+    <section class="mypage-content inquiry-write">
+      <h2>1:1 문의</h2>
+
+      <form class="inquiry-form">
+        <!-- 문의 유형 -->
+        <label for="category">문의 유형*</label>
+        <select id="category" required>
+          <option value="">선택하세요</option>
+          <option value="배송문의">배송문의</option>
+          <option value="상품문의">상품문의</option>
+          <option value="교환/반품">교환/반품</option>
+          <option value="기타">기타</option>
+        </select>
+
+        <!-- 문의 상품 -->
+        <label>문의상품</label>
+        <div class="product-select">
+          <button type="button">주문상품 찾기</button>
+          <span class="product-selected">선택한 상품 없음</span>
+        </div>
+
+        <!-- 제목 -->
+        <label for="title">제목*</label>
+        <input type="text" id="title" required placeholder="제목을 입력해주세요" />
+
+        <!-- 내용 -->
+        <label for="content">문의 내용* (0/500자)</label>
+        <textarea id="content" rows="6" maxlength="500" required></textarea>
+
+        <!-- 이미지 첨부 -->
+        <label>이미지 첨부</label>
+        <div class="file-box">
+          <input type="file" accept=".jpg,.jpeg,.png" />
+          <span>용량 10MB 이내의 jpg(jpeg), png</span>
+        </div>
+
+        <!-- 답변 연락처 -->
+        <label>이메일 답변 알림</label>
+        <input type="email" value="user@email.com" />
+
+        <label>SMS 답변 알림</label>
+        <input type="text" value="010-****-5648" />
+
+        <!-- 버튼 -->
+        <div class="form-buttons">
+          <button type="submit" class="submit-btn">문의하기</button>
+          <button type="reset" class="cancel-btn">취소</button>
+        </div>
+      </form>
+    </section>
+  </div>
+</main>
+
+    <!-- 푸터 -->
+    <div id="footer"></div>
+    
+<!-- 검색창 오버레이 -->
+<div id="search-overlay" class="search-overlay">
+  <div class="search-header">
+    <input type="text" id="search-input"/>
+    <button id="search-close"><i class="fa-solid fa-xmark"></i></button>
+  </div>
+
+  <div class="search-section">
+    <div class="search-label">최근 검색어</div>
+    <ul class="search-list" id="recent-searches">
+      <li>‘니트’</li>
+    </ul>
+  </div>
+</div>
+
+<!-- 로그인 모달 -->
+<div class="modal" id="login-modal">
+  <div class="modal__content">
+    <button class="modal__close" id="login-close">&times;</button>
+    <div class="modal__title">
+      <div>로그인</div>
+      <div><a href="#" id="go-signup">회원가입</a></div>
+    </div>
+    
+    <label for="login-id" class="login__label">아이디 또는 이메일</label>
+    <input type="text" id="login-id" name="login-id">
+
+    <label for="login-pw" class="login__label">비밀번호</label>
+    <input type="password" id="login-pw" name="login-pw">
+
+    <button class="modal__submit">로그인</button>
+    <div class="login__info__find">
+      <div class="login__info__find__id"><a>아이디 찾기</a></div>
+      <div class="login__info__find__password"><a>비밀번호 찾기</a></div>
+    </div>
+    <div class="login__sns">SNS 계정을 연동해 간편하게 로그인해보세요</div>
+    <div class="login__sns__method">
+      <button id="login__kakao">
+        <img src="../images/kakao.png" width="15px;">카카오톡
+      </button>
+      <button id="login__naver">
+        <img src="../images/naver.png" width="15px;">네이버
+      </button>
+    </div>
+    <div class="guest__order__inquiry"><a>비회원주문조회</a></div>
+  </div>
+</div>
+
+<!-- 회원가입 모달 -->
+<div class="modal" id="signup-modal">
+  <div class="modal__content">
+    <button class="modal__close" id="signup-close">&times;</button>
+    <div class="modal__title">
+      <div>회원가입</div>
+    </div>
+
+    <form id="signup-form">
+      <label class="signup__label" for="signup-username">아이디</label>
+      <input type="text" id="signup-username" required>
+
+      <label class="signup__label" for="signup-password">비밀번호</label>
+      <input type="password" id="signup-password" required>
+
+      <label class="signup__label" for="signup-confirm">비밀번호 확인</label>
+      <input type="password" id="signup-confirm" required>
+
+      <label class="signup__label" for="signup-email">이메일</label>
+      <input type="email" id="signup-email" required>
+
+      <label class="signup__label" for="signup-username">전화번호</label>
+      <input type="text" id="signup-username" required>
+
+      <button type="submit" class="modal__submit">가입하기</button>
+    </form>
+  </div>
+</div>
+</body>
+</html>

@@ -1,35 +1,80 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>COS 스타일 쇼핑몰</title>
-  <link rel="stylesheet" href="../css/style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <script src="../js/common.js" defer></script>
-  <script src="../js/index.js" defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>주소록 | COS 스타일 쇼핑몰</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <script src="../js/common.js" defer></script>
 </head>
 <body>
-  <div id="header"></div>
+    <!-- 헤더 (include 또는 fetch로 불러오는 방식 가능) -->
+    <div id="header"></div>
 
-  <section class="collection-section">
-    <div class="collection left">
-      <a href="product_list.html?category=women">
-        <div class="overlay">
-          <span>여성 컬렉션</span>
-        </div>
-      </a>
-    </div>
-    <div class="collection right">
-      <a href="product_list.html?category=men">
-        <div class="overlay">
-          <span>남성 컬렉션</span>
-        </div>
-      </a>
-    </div>
-  </section>
+    <main class="mypage">
+  <div class="mypage-container">
 
-  <div id="footer"></div>
+    <!-- 좌측 메뉴 -->
+    <nav class="mypage-nav">
+      <h2>My COS</h2>
+      <ul>
+        <li><a href="my_page.html">회원정보</a></li>
+        <li><a href="order_list.html">주문/배송</a></li>
+        <li><a href="wishlist.html">위시리스트</a></li>
+        <li class="active"><a href="address_manage.html">배송지관리</a></li>
+        <li><a href="inquiry_list.html">1:1 문의</a></li>
+        <li><a href="#" id="logoutBtn">로그아웃</a></li>
+      </ul>
+    </nav>
+
+    <!-- 우측 배송지 관리 -->
+    <section class="mypage-content address-manage">
+      <h2>배송지 관리</h2>
+
+      <div class="address-list">
+
+  <!-- ✅ 기본 배송지 (맨 위) -->
+  <div class="address-card">
+    <div class="address-header">
+      <span class="address-name">홍길동</span>
+      <span class="address-default">기본배송지</span>
+    </div>
+    <div class="address-info">
+      <p>010-1234-5678</p>
+      <p>서울특별시 강남구 테헤란로 123, 5층 (삼성동)</p>
+    </div>
+    <div class="address-buttons">
+      <button class="btn-edit">수정</button>
+      <button class="btn-delete">삭제</button>
+    </div>
+  </div>
+
+  <!-- ✅ 일반 배송지 (기본으로 변경 가능) -->
+  <div class="address-card">
+    <div class="address-header">
+      <span class="address-name">김민지</span>
+    </div>
+    <div class="address-info">
+      <p>010-2222-3333</p>
+      <p>부산광역시 해운대구 마린시티1로 88</p>
+    </div>
+    <div class="address-buttons">
+      <button class="btn-edit">수정</button>
+      <button class="btn-delete">삭제</button>
+      <button class="btn-set-default">기본배송지로 설정</button>
+    </div>
+  </div>
+
+  <!-- 🔁 나머지도 같은 구조 반복 -->
+</div>
+
+
+      <div class="address-add-btn">
+        <button>+ 새 배송지 추가</button>
+      </div>
+    </section>
+  </div>
 
   <!-- 오버레이 메뉴 -->
 <div id="overlay-menu" class="overlay-menu">
@@ -143,5 +188,32 @@
     </form>
   </div>
 </div>
+</main>
+
+    <!-- 푸터 -->
+    <div id="footer"></div>
 </body>
+<script>
+    // header/footer 공통 컴포넌트 불러오기
+    fetch("header.html")
+      .then(res => res.text())
+      .then(data => document.getElementById("header").innerHTML = data);
+
+    fetch("footer.html")
+      .then(res => res.text())
+      .then(data => document.getElementById("footer").innerHTML = data);
+
+    // product_detail.js
+    document.getElementById("add-to-cart")?.addEventListener("click", () => {
+    // 나중엔 실제 장바구니에 데이터 저장 추가 가능
+    location.href = "cart.html";  // 또는 basketList.html
+});
+
+        document.querySelectorAll(".btn-set-default").forEach(button => {
+        button.addEventListener("click", () => {
+            // 예: 서버에 기본 배송지 변경 요청 후
+            // DOM 업데이트: 선택한 .address-card를 제일 위로 올리기
+        });
+        });
+    </script>
 </html>

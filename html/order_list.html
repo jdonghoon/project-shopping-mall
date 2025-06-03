@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>주문/배송 | COS 스타일 쇼핑몰</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <script src="../js/common.js" defer></script>
+</head>
+<body>
+    <!-- 헤더 (include 또는 fetch로 불러오는 방식 가능) -->
+    <div id="header"></div>
+  <main class="mypage">
+  <div class="mypage-container">
+    
+    <!-- 좌측 네비게이션 -->
+    <nav class="mypage-nav">
+      <h2>My COS</h2>
+      <ul>
+        <li><a href="my_page.html">회원정보</a></li>
+        <li class="active"><a href="#">주문/배송</a></li>
+        <li><a href="wishlist.html">위시리스트</a></li>
+        <li><a href="address_manage.html">배송지관리</a></li>
+        <li><a href="inquiry_list.html">1:1 문의</a></li>
+        <li><a href="#" id="logoutBtn">로그아웃</a></li>
+      </ul>
+    </nav>
+
+    <!-- 우측 주문 내역 -->
+    <section class="mypage-content">
+      <h2>주문/배송</h2>
+      
+      <div class="order-filter">
+  <!-- 상태보기 필터 -->
+  <div class="filter-box">
+    <div class="filter-selected" id="statusFilter">상태보기 / 전체보기 ▴</div>
+    <ul class="filter-dropdown" id="statusDropdown">
+      <li class="active">전체보기</li>
+      <li class="active">주문취소</li>
+      <li class="active">반품</li>
+    </ul>
+  </div>
+
+  <!-- 기간보기 필터 -->
+  <div class="filter-box">
+    <div class="filter-selected" id="periodFilter">기간보기 / 1개월 ▴</div>
+    <ul class="filter-dropdown" id="periodDropdown">
+      <li class="active">1개월</li>
+      <li>3개월</li>
+      <li>6개월</li>
+      <li>전체보기</li>
+    </ul>
+  </div>
+</div>
+  <!-- 주문내역이 없는 경우 -->
+  <!-- <div class="order-empty">
+    <p>1개월 이내 주문/배송 내역이 없습니다.</p>
+  </div> -->
+    <div class="order-table">
+  <!-- 헤더 -->
+  <div class="order-head">
+    <div>주문일 / 주문번호</div>
+    <div>상품정보 / 옵션정보</div>
+    <div>결제금액</div>
+    <div>주문상태</div>
+    <div>취소/반품</div>
+  </div>
+
+  <!-- 반복되는 주문 -->
+  <div class="order-row">
+    <div>
+      <div>2025-01-25</div>
+      <div>25012500973189</div>
+      <div><a href="#">상세보기</a></div>
+    </div>
+    <div class="product-info">
+      <img src="../images/sample1.jpg" alt="상품1" />
+      <div>
+        <div>밀라노 니트 코튼 셔츠</div>
+        <div>옵션: 블랙 / M / 1개</div>
+      </div>
+    </div>
+    <div>135,000원</div>
+    <div>
+      배송완료<br />
+      <a href="#">배송추적</a>
+    </div>
+    <div><a href="#">반품</a></div>
+  </div>
+</div>
+
+  <!-- 🔁 반복되는 order-row -->
+</div>
+
+    </section>
+  </div>
+
+  <!-- 아래쪽 브랜드 공간 (선택) -->
+  <div class="brand-logo">
+    <img src="./images/cos-logo.png" alt="COS 로고" />
+  </div>
+</main>
+
+    <!-- 푸터 -->
+    <div id="footer"></div>
+
+    <!-- 오버레이 메뉴 -->
+<div id="overlay-menu" class="overlay-menu">
+  <div class="overlay-menu__header">
+    <button id="menu-close" class="overlay-menu__close">&times;</button>
+    <div class="overlay-menu__nav">
+      <span>여성</span>
+      <span>남성</span>
+    </div>
+  </div>
+
+  <div class="overlay-menu__inner">
+    <div class="overlay-menu__column">
+      <strong>CLOTHING</strong>
+      <a href="product_list.html?category=new">신상품</a>
+      <a href="product_list.html?category=trending">트렌딩 나우</a>
+      <a href="product_list.html?category=shirts">셔츠 & 블라우스</a>
+      <a href="product_list.html?category=knit">니트웨어 & 가디건</a>
+      <a href="product_list.html?category=jeans">진</a>
+    </div>
+
+    <div class="overlay-menu__column">
+      <strong>ACCESSORIES</strong>
+      <a href="product_list.html?category=bag">가방</a>
+      <a href="product_list.html?category=shoes">신발</a>
+      <a href="product_list.html?category=hat">모자 & 하이브리드</a>
+    </div>
+
+    <div class="overlay-menu__column">
+      <strong>EDITS</strong>
+      <a href="product_list.html?category=spring2025">2025 봄 여름 컬렉션</a>
+      <a href="product_list.html?category=linen">리넨 컬렉션</a>
+      <a href="product_list.html?category=exclusive">온라인 익스클루시브</a>
+    </div>
+  </div>
+</div>
+
+<!-- 검색창 오버레이 -->
+<div id="search-overlay" class="search-overlay">
+  <div class="search-header">
+    <input type="text" id="search-input"/>
+    <button id="search-close"><i class="fa-solid fa-xmark"></i></button>
+  </div>
+
+  <div class="search-section">
+    <div class="search-label">최근 검색어</div>
+    <ul class="search-list" id="recent-searches">
+      <li>‘니트’</li>
+    </ul>
+  </div>
+</div>
+
+<!-- 로그인 모달 -->
+<div class="modal" id="login-modal">
+  <div class="modal__content">
+    <button class="modal__close" id="login-close">&times;</button>
+    <div class="modal__title">
+      <div>로그인</div>
+      <div><a href="#" id="go-signup">회원가입</a></div>
+    </div>
+    
+    <label for="login-id" class="login__label">아이디 또는 이메일</label>
+    <input type="text" id="login-id" name="login-id">
+
+    <label for="login-pw" class="login__label">비밀번호</label>
+    <input type="password" id="login-pw" name="login-pw">
+
+    <button class="modal__submit">로그인</button>
+    <div class="login__info__find">
+      <div class="login__info__find__id"><a>아이디 찾기</a></div>
+      <div class="login__info__find__password"><a>비밀번호 찾기</a></div>
+    </div>
+    <div class="login__sns">SNS 계정을 연동해 간편하게 로그인해보세요</div>
+    <div class="login__sns__method">
+      <button id="login__kakao">
+        <img src="../images/kakao.png" width="15px;">카카오톡
+      </button>
+      <button id="login__naver">
+        <img src="../images/naver.png" width="15px;">네이버
+      </button>
+    </div>
+    <div class="guest__order__inquiry"><a>비회원주문조회</a></div>
+  </div>
+</div>
+
+<!-- 회원가입 모달 -->
+<div class="modal" id="signup-modal">
+  <div class="modal__content">
+    <button class="modal__close" id="signup-close">&times;</button>
+    <div class="modal__title">
+      <div>회원가입</div>
+    </div>
+
+    <form id="signup-form">
+      <label class="signup__label" for="signup-username">아이디</label>
+      <input type="text" id="signup-username" required>
+
+      <label class="signup__label" for="signup-password">비밀번호</label>
+      <input type="password" id="signup-password" required>
+
+      <label class="signup__label" for="signup-confirm">비밀번호 확인</label>
+      <input type="password" id="signup-confirm" required>
+
+      <label class="signup__label" for="signup-email">이메일</label>
+      <input type="email" id="signup-email" required>
+
+      <label class="signup__label" for="signup-username">전화번호</label>
+      <input type="text" id="signup-username" required>
+
+      <button type="submit" class="modal__submit">가입하기</button>
+    </form>
+  </div>
+</div>
+</main>
+</body>
+
+  <script>
+    // header/footer 공통 컴포넌트 불러오기
+    fetch("header.html")
+      .then(res => res.text())
+      .then(data => document.getElementById("header").innerHTML = data);
+
+    fetch("footer.html")
+      .then(res => res.text())
+      .then(data => document.getElementById("footer").innerHTML = data);
+
+    // product_detail.js
+    document.getElementById("add-to-cart")?.addEventListener("click", () => {
+    // 나중엔 실제 장바구니에 데이터 저장 추가 가능
+    location.href = "cart.html";  // 또는 basketList.html
+});
+
+    // 상태 필터 열기/닫기
+document.getElementById("statusFilter").addEventListener("click", () => {
+  document.getElementById("statusDropdown").classList.toggle("show");
+});
+
+// 기간 필터 열기/닫기
+document.getElementById("periodFilter").addEventListener("click", () => {
+  document.getElementById("periodDropdown").classList.toggle("show");
+});
+
+// 외부 클릭 시 드롭다운 닫기
+document.addEventListener("click", (e) => {
+  if (!e.target.closest(".filter-box")) {
+    document.querySelectorAll(".filter-dropdown").forEach(drop => drop.classList.remove("show"));
+  }
+});
+
+// 상태 필터 항목 선택 처리
+document.querySelectorAll("#statusDropdown li:not(.disabled)").forEach(item => {
+  item.addEventListener("click", () => {
+    const value = item.innerText;
+
+    // 선택된 값 텍스트 변경
+    document.getElementById("statusFilter").innerText = `상태보기 / ${value} ▴`;
+
+    // .active 클래스 처리
+    document.querySelectorAll("#statusDropdown li").forEach(li => li.classList.remove("active"));
+    item.classList.add("active");
+
+    // 👉 여기에 필터링 함수 연결 가능
+    // filterByStatus(value);
+  });
+});
+
+// 기간 필터 항목 선택 처리
+document.querySelectorAll("#periodDropdown li").forEach(item => {
+  item.addEventListener("click", () => {
+    const value = item.innerText;
+
+    // 선택된 값 텍스트 변경
+    document.getElementById("periodFilter").innerText = `기간보기 / ${value} ▴`;
+
+    // .active 클래스 처리
+    document.querySelectorAll("#periodDropdown li").forEach(li => li.classList.remove("active"));
+    item.classList.add("active");
+
+    // 👉 여기에 필터링 함수 연결 가능
+    // filterByPeriod(value);
+  });
+});
+
+
+  </script>
+</body>
+</html>

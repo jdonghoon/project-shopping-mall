@@ -3,32 +3,115 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>COS 스타일 쇼핑몰</title>
+  <title>상품 목록 | COS 스타일 쇼핑몰</title>
   <link rel="stylesheet" href="../css/style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <script src="../js/common.js" defer></script>
-  <script src="../js/index.js" defer></script>
+  <script src="../js/product_list.js" defer></script>
 </head>
 <body>
+
+  <!-- 헤더 (include 또는 fetch로 불러오는 방식 가능) -->
   <div id="header"></div>
 
-  <section class="collection-section">
-    <div class="collection left">
-      <a href="product_list.html?category=women">
-        <div class="overlay">
-          <span>여성 컬렉션</span>
-        </div>
-      </a>
-    </div>
-    <div class="collection right">
-      <a href="product_list.html?category=men">
-        <div class="overlay">
-          <span>남성 컬렉션</span>
-        </div>
-      </a>
-    </div>
-  </section>
+  <!-- 상품 목록 메인 영역 -->
+  <main class="product-category">
 
+    <!-- 브레드크럼 -->
+    <div class="breadcrumb">HOME / 여성 / 니트웨어 & 가디건</div>
+
+    <!-- 타이틀 + 설명 -->
+    <div class="category-header">
+      <h2>니트웨어 & 가디건</h2>
+      <p>클래식한 실루엣, 감각적인 디테일로 재해석한 여성 니트 컬렉션을 만나보세요.</p>
+    </div>
+
+    <!-- 카테고리 탭 -->
+    <div class="category-tabs">
+      <a href="#" class="active">모두 보기</a>
+      <a href="#">가디건</a>
+      <a href="#">니트 탑</a>
+      <a href="#">폴로 셔츠</a>
+    </div>
+
+    <!-- 툴바 -->
+    <div class="category-toolbar">
+      <div class="view-mode"><i class="fa-solid fa-table-cells"></i> 보기 변경</div>
+      <div class="filter-sort"><i class="fa-solid fa-sliders"></i> 필터 & 정렬</div>
+    </div>
+
+    <!-- 상품 리스트 -->
+    <section class="product-grid">
+      <div class="product-card">
+        <a href="product_detail.html">
+          <img src="../images/sample1.jpg" alt="스트럭처 반팔 니트" />
+          <div class="product-badge">NEW</div>
+          <div class="product-name">스트럭처 반팔 니트</div>
+        </a>
+        <div class="product-price">89,000원</div>
+      </div>
+
+      <div class="product-card">
+        <a href="product_detail.html">
+          <img src="../images/sample2.jpg" alt="오버사이즈 니트 탑" />
+          <div class="product-name">오버사이즈 니트 탑</div>
+        </a>
+        <div class="product-price">99,000원</div>
+      </div>
+
+      <div class="product-card">
+        <a href="product_detail.html">
+          <img src="../images/sample3.jpg" alt="오버사이즈 니트 탑" />
+          <div class="product-name">오버사이즈 니트 탑</div>
+        </a>
+        <div class="product-price">99,000원</div>
+      </div>
+
+      <div class="product-card">
+        <a href="product_detail.html">
+          <img src="../images/sample4.jpg" alt="오버사이즈 니트 탑" />
+          <div class="product-name">오버사이즈 니트 탑</div>
+        </a>
+        <div class="product-price">99,000원</div>
+      </div>
+
+      <div class="product-card">
+        <a href="product_detail.html">
+          <img src="../images/sample1.jpg" alt="오버사이즈 니트 탑" />
+          <div class="product-name">오버사이즈 니트 탑</div>
+        </a>
+        <div class="product-price">99,000원</div>
+      </div>
+
+      <div class="product-card">
+        <a href="product_detail.html">
+          <img src="../images/sample2.jpg" alt="오버사이즈 니트 탑" />
+          <div class="product-name">오버사이즈 니트 탑</div>
+        </a>
+        <div class="product-price">99,000원</div>
+      </div>
+
+      <div class="product-card">
+        <a href="product_detail.html">
+          <img src="../images/sample3.jpg" alt="오버사이즈 니트 탑" />
+          <div class="product-name">오버사이즈 니트 탑</div>
+        </a>
+        <div class="product-price">99,000원</div>
+      </div>
+
+      <div class="product-card">
+        <a href="product_detail.html">
+          <img src="../images/sample4.jpg" alt="오버사이즈 니트 탑" />
+          <div class="product-name">오버사이즈 니트 탑</div>
+        </a>
+        <div class="product-price">99,000원</div>
+      </div>
+
+      <!-- 더 많은 상품 반복 -->
+    </section>
+  </main>
+
+  <!-- 푸터 -->
   <div id="footer"></div>
 
   <!-- 오버레이 메뉴 -->
@@ -143,5 +226,17 @@
     </form>
   </div>
 </div>
+
+  <script>
+    // header/footer 공통 컴포넌트 불러오기
+    fetch("header.html")
+      .then(res => res.text())
+      .then(data => document.getElementById("header").innerHTML = data);
+
+    fetch("footer.html")
+      .then(res => res.text())
+      .then(data => document.getElementById("footer").innerHTML = data);
+  </script>
+
 </body>
 </html>

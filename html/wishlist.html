@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>위시리스트 | COS 스타일 쇼핑몰</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <script src="../js/common.js" defer></script>
+</head>
+<body>
+    <!-- 헤더 (include 또는 fetch로 불러오는 방식 가능) -->
+    <div id="header"></div>
+  <main class="mypage">
+  <div class="mypage-container">
+    
+    <!-- 좌측 메뉴 -->
+    <nav class="mypage-nav">
+      <h2>My COS</h2>
+      <ul>
+        <li><a href="my_page.html">회원정보</a></li>
+        <li><a href="order_list.html">주문/배송</a></li>
+        <li class="active"><a href="wishlist.html">위시리스트</a></li>
+        <li><a href="address_manage.html">배송지관리</a></li>
+        <li><a href="inquiry_list.html">1:1 문의</a></li>
+        <li><a href="#" id="logoutBtn">로그아웃</a></li>
+        <!-- 기타 메뉴 -->
+      </ul>
+    </nav>
+
+    <!-- 우측 콘텐츠 -->
+    <section class="mypage-content wishlist-content">
+      <h2 class="wishlist-title">나의 위시리스트</h2>
+
+      <!-- 조건에 따라 아래 두 블록 중 하나만 보여주기 -->
+
+      <!-- ✅ 1) 비어있을 때 -->
+      <!-- <div class="wishlist-empty">
+        <p>마음에 드는 제품을 저장하고 싶으신가요?<br />
+        제품 내 하트 버튼을 눌러 위시리스트에 저장해보세요.</p>
+        <a href="product_list.html" class="wishlist-btn">쇼핑하러 가기</a>
+      </div> -->
+
+      <!-- ✅ 2) 상품 있을 때 -->
+      <div class="wishlist-grid">
+        <!-- 🔁 반복 가능 -->
+        <div class="wishlist-item">
+          <div class="wishlist-image-box">
+            <img src="../images/sample1.jpg" alt="상품 이미지" />
+            <button class="wishlist-remove">×</button>
+          </div>
+          <div class="wishlist-name">상품명</div>
+          <div class="wishlist-price">220,000원</div>
+          <select>
+            <option>사이즈를 선택하세요</option>
+          </select>
+          <button class="wishlist-cart-btn">장바구니 담기</button>
+        </div>
+        
+        <div class="wishlist-item">
+          <div class="wishlist-image-box">
+            <img src="../images/sample2.jpg" alt="상품 이미지" />
+            <button class="wishlist-remove">×</button>
+          </div>
+          <div class="wishlist-name">상품명</div>
+          <div class="wishlist-price">220,000원</div>
+          <select>
+            <option>사이즈를 선택하세요</option>
+          </select>
+          <button class="wishlist-cart-btn">장바구니 담기</button>
+        </div>
+
+        <div class="wishlist-item">
+          <div class="wishlist-image-box">
+            <img src="../images/sample3.jpg" alt="상품 이미지" />
+            <button class="wishlist-remove">×</button>
+          </div>
+          <div class="wishlist-name">상품명</div>
+          <div class="wishlist-price">220,000원</div>
+          <select>
+            <option>사이즈를 선택하세요</option>
+          </select>
+          <button class="wishlist-cart-btn">장바구니 담기</button>
+        </div>
+
+        <div class="wishlist-item">
+          <div class="wishlist-image-box">
+            <img src="../images/sample4.jpg" alt="상품 이미지" />
+            <button class="wishlist-remove">×</button>
+          </div>
+          <div class="wishlist-name">상품명</div>
+          <div class="wishlist-price">220,000원</div>
+          <select>
+            <option>사이즈를 선택하세요</option>
+          </select>
+          <button class="wishlist-cart-btn">장바구니 담기</button>
+        </div>
+      </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+
+    <!-- 푸터 -->
+    <div id="footer"></div>
+
+    <!-- 오버레이 메뉴 -->
+<div id="overlay-menu" class="overlay-menu">
+  <div class="overlay-menu__header">
+    <button id="menu-close" class="overlay-menu__close">&times;</button>
+    <div class="overlay-menu__nav">
+      <span>여성</span>
+      <span>남성</span>
+    </div>
+  </div>
+
+  <div class="overlay-menu__inner">
+    <div class="overlay-menu__column">
+      <strong>CLOTHING</strong>
+      <a href="product_list.html?category=new">신상품</a>
+      <a href="product_list.html?category=trending">트렌딩 나우</a>
+      <a href="product_list.html?category=shirts">셔츠 & 블라우스</a>
+      <a href="product_list.html?category=knit">니트웨어 & 가디건</a>
+      <a href="product_list.html?category=jeans">진</a>
+    </div>
+
+    <div class="overlay-menu__column">
+      <strong>ACCESSORIES</strong>
+      <a href="product_list.html?category=bag">가방</a>
+      <a href="product_list.html?category=shoes">신발</a>
+      <a href="product_list.html?category=hat">모자 & 하이브리드</a>
+    </div>
+
+    <div class="overlay-menu__column">
+      <strong>EDITS</strong>
+      <a href="product_list.html?category=spring2025">2025 봄 여름 컬렉션</a>
+      <a href="product_list.html?category=linen">리넨 컬렉션</a>
+      <a href="product_list.html?category=exclusive">온라인 익스클루시브</a>
+    </div>
+  </div>
+</div>
+
+<!-- 검색창 오버레이 -->
+<div id="search-overlay" class="search-overlay">
+  <div class="search-header">
+    <input type="text" id="search-input"/>
+    <button id="search-close"><i class="fa-solid fa-xmark"></i></button>
+  </div>
+
+  <div class="search-section">
+    <div class="search-label">최근 검색어</div>
+    <ul class="search-list" id="recent-searches">
+      <li>‘니트’</li>
+    </ul>
+  </div>
+</div>
+
+<!-- 로그인 모달 -->
+<div class="modal" id="login-modal">
+  <div class="modal__content">
+    <button class="modal__close" id="login-close">&times;</button>
+    <div class="modal__title">
+      <div>로그인</div>
+      <div><a href="#" id="go-signup">회원가입</a></div>
+    </div>
+    
+    <label for="login-id" class="login__label">아이디 또는 이메일</label>
+    <input type="text" id="login-id" name="login-id">
+
+    <label for="login-pw" class="login__label">비밀번호</label>
+    <input type="password" id="login-pw" name="login-pw">
+
+    <button class="modal__submit">로그인</button>
+    <div class="login__info__find">
+      <div class="login__info__find__id"><a>아이디 찾기</a></div>
+      <div class="login__info__find__password"><a>비밀번호 찾기</a></div>
+    </div>
+    <div class="login__sns">SNS 계정을 연동해 간편하게 로그인해보세요</div>
+    <div class="login__sns__method">
+      <button id="login__kakao">
+        <img src="../images/kakao.png" width="15px;">카카오톡
+      </button>
+      <button id="login__naver">
+        <img src="../images/naver.png" width="15px;">네이버
+      </button>
+    </div>
+    <div class="guest__order__inquiry"><a>비회원주문조회</a></div>
+  </div>
+</div>
+
+<!-- 회원가입 모달 -->
+<div class="modal" id="signup-modal">
+  <div class="modal__content">
+    <button class="modal__close" id="signup-close">&times;</button>
+    <div class="modal__title">
+      <div>회원가입</div>
+    </div>
+
+    <form id="signup-form">
+      <label class="signup__label" for="signup-username">아이디</label>
+      <input type="text" id="signup-username" required>
+
+      <label class="signup__label" for="signup-password">비밀번호</label>
+      <input type="password" id="signup-password" required>
+
+      <label class="signup__label" for="signup-confirm">비밀번호 확인</label>
+      <input type="password" id="signup-confirm" required>
+
+      <label class="signup__label" for="signup-email">이메일</label>
+      <input type="email" id="signup-email" required>
+
+      <label class="signup__label" for="signup-username">전화번호</label>
+      <input type="text" id="signup-username" required>
+
+      <button type="submit" class="modal__submit">가입하기</button>
+    </form>
+  </div>
+</div>
+</main>
+</body>
+
+  <script>
+    // header/footer 공통 컴포넌트 불러오기
+    fetch("header.html")
+      .then(res => res.text())
+      .then(data => document.getElementById("header").innerHTML = data);
+
+    fetch("footer.html")
+      .then(res => res.text())
+      .then(data => document.getElementById("footer").innerHTML = data);
+
+    // product_detail.js
+    document.getElementById("add-to-cart")?.addEventListener("click", () => {
+    // 나중엔 실제 장바구니에 데이터 저장 추가 가능
+    location.href = "cart.html";  // 또는 basketList.html
+});
+
+    // 상태 필터 드롭다운
+document.getElementById("statusFilter").addEventListener("click", () => {
+  document.getElementById("statusDropdown").classList.toggle("show");
+});
+
+// 기간 필터 드롭다운
+document.getElementById("periodFilter").addEventListener("click", () => {
+  document.getElementById("periodDropdown").classList.toggle("show");
+});
+
+// 외부 클릭 시 닫기
+document.addEventListener("click", function (e) {
+  if (!e.target.closest(".filter-box")) {
+    document.querySelectorAll(".filter-dropdown").forEach(drop => drop.classList.remove("show"));
+  }
+});
+
+if (wishlist.length === 0) {
+  document.querySelector('.wishlist-empty').style.display = 'block';
+  document.querySelector('.wishlist-grid').style.display = 'none';
+} else {
+  document.querySelector('.wishlist-empty').style.display = 'none';
+  document.querySelector('.wishlist-grid').style.display = 'flex';
+}
+
+  </script>
+</body>
+</html>

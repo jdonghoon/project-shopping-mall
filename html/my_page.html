@@ -1,37 +1,66 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>COS 스타일 쇼핑몰</title>
-  <link rel="stylesheet" href="../css/style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <script src="../js/common.js" defer></script>
-  <script src="../js/index.js" defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원정보 | COS 스타일 쇼핑몰</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <script src="../js/common.js" defer></script>
 </head>
 <body>
-  <div id="header"></div>
+    <!-- 헤더 (include 또는 fetch로 불러오는 방식 가능) -->
+    <div id="header"></div>
+        <main class="mypage">
+  <div class="mypage-container">
+    <!-- 좌측 메뉴 -->
+    <nav class="mypage-nav">
+      <h2>My COS</h2>
+      <ul>
+        <li class="active"><a href="my_page.html">회원정보</a></li>
+        <li><a href="order_list.html">주문/배송</a></li>
+        <li><a href="wishlist.html">위시리스트</a></li>
+        <li><a href="address_manage.html">배송지 관리</a></li>
+        <li><a href="inquiry_list.html">1:1 문의</a></li>
+        <li><a href="#" id="logoutBtn">로그아웃</a></li>
+      </ul>
+    </nav>
 
-  <section class="collection-section">
-    <div class="collection left">
-      <a href="product_list.html?category=women">
-        <div class="overlay">
-          <span>여성 컬렉션</span>
-        </div>
-      </a>
-    </div>
-    <div class="collection right">
-      <a href="product_list.html?category=men">
-        <div class="overlay">
-          <span>남성 컬렉션</span>
-        </div>
-      </a>
-    </div>
-  </section>
+    <!-- 우측 회원 정보 -->
+    <section class="mypage-info">
+      <h2>회원정보변경</h2>
 
-  <div id="footer"></div>
+      <strong>아이디</strong>
+      <div class="info-row"> wjs*******@*******</div>
+      <strong>이름</strong>
+      <div class="info-row"> 전훈</div>
+      <strong>이메일</strong>
+      <div class="info-row"> wjs*******@*******</div>
+      <strong>휴대폰번호</strong>
+      <div class="info-row"> 010-****-5648</div>
 
-  <!-- 오버레이 메뉴 -->
+      <strong>비밀번호</strong>
+      <div class="info-row">
+        <input type="password" placeholder="비밀번호를 입력하세요" />
+      </div>
+
+      <p class="info-guide">
+        고객님의 소중한 회원정보를 확인/변경하기 위해<br>
+        <strong>비밀번호 재확인이 필요합니다.</strong><br><br>
+        카카오 로그인 등으로 가입하신 고객님은, 로그아웃 후 ‘비밀번호 찾기’를 통해<br>
+        비밀번호 재설정이 필요합니다.
+      </p>
+
+      <button class="confirm-button">확인</button>
+    </section>
+  </div>
+</main>
+
+
+    <!-- 푸터 -->
+    <div id="footer"></div>
+
+    <!-- 오버레이 메뉴 -->
 <div id="overlay-menu" class="overlay-menu">
   <div class="overlay-menu__header">
     <button id="menu-close" class="overlay-menu__close">&times;</button>
@@ -143,5 +172,25 @@
     </form>
   </div>
 </div>
+</main>
+</body>
+
+  <script>
+    // header/footer 공통 컴포넌트 불러오기
+    fetch("header.html")
+      .then(res => res.text())
+      .then(data => document.getElementById("header").innerHTML = data);
+
+    fetch("footer.html")
+      .then(res => res.text())
+      .then(data => document.getElementById("footer").innerHTML = data);
+
+    // product_detail.js
+    document.getElementById("add-to-cart")?.addEventListener("click", () => {
+    // 나중엔 실제 장바구니에 데이터 저장 추가 가능
+    location.href = "cart.html";  // 또는 basketList.html
+});
+
+  </script>
 </body>
 </html>

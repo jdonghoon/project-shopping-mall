@@ -1,34 +1,99 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>COS 스타일 쇼핑몰</title>
-  <link rel="stylesheet" href="../css/style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <script src="../js/common.js" defer></script>
-  <script src="../js/index.js" defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>상품 상세 | COS 스타일 쇼핑몰</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <script src="../js/common.js" defer></script>
+    <script src="../js/product_list.js" defer></script>
 </head>
 <body>
-  <div id="header"></div>
+    <!-- 헤더 (include 또는 fetch로 불러오는 방식 가능) -->
+    <div id="header"></div>
 
-  <section class="collection-section">
-    <div class="collection left">
-      <a href="product_list.html?category=women">
-        <div class="overlay">
-          <span>여성 컬렉션</span>
+    <main class="product-detail">
+      <div class="product-detail__container">
+        <!-- 왼쪽: 이미지 -->
+        <div class="product-detail__image">
+          <img src="../images/sample1.jpg" alt="상품 이미지" />
         </div>
-      </a>
-    </div>
-    <div class="collection right">
-      <a href="product_list.html?category=men">
-        <div class="overlay">
-          <span>남성 컬렉션</span>
-        </div>
-      </a>
-    </div>
-  </section>
 
+        <!-- 오른쪽: 정보 -->
+        <div class="product-detail__info">
+          <h1 class="product-name">오픈 니트 폴로 셔츠</h1>
+          <p class="product-price">99,000원</p>
+
+          <div class="product-option">
+            <label>색상</label>
+            <div class="product-color">Mole Mélange</div>
+          </div>
+
+          <div class="product-option">
+            <label for="size-select">사이즈</label>
+            <select id="size-select">
+              <option>사이즈 선택</option>
+              <option>S</option>
+              <option>M</option>
+              <option>L</option>
+              <option>XL</option>
+            </select>
+          </div>
+
+          <button class="add-to-cart" id="add-to-cart">장바구니 담기</button>
+          <!-- 하단 설명 -->
+          <section class="product-detail__description">
+            <h2>제품 설명</h2>
+            <p>
+              통기성이 좋은 오픈 니트 구조의 부클레 폴로 셔츠입니다.<br>
+              편안한 실루엣, 소프트한 질감으로 제작되었습니다.
+            </p>
+          </section>
+        </div>
+      </div>
+
+      <section class="recommended-products">
+        <h4>추천 상품</h4>
+        <div class="recommended-grid">
+          <div class="product-card">
+            <a href="product_detail.html">
+              <img src="../images/sample1.jpg" alt="상품1">
+              <div class="product-name">오픈 니트 반팔</div>
+            </a>
+            <div class="product-price">89,000원</div>
+          </div>
+
+          <div class="product-card">
+            <a href="product_detail.html">
+              <img src="../images/sample2.jpg" alt="상품2">
+              <div class="product-name">슬림 핏 셔츠</div>
+            </a>
+            <div class="product-price">79,000원</div>
+          </div>
+
+          <div class="product-card">
+            <a href="product_detail.html">
+              <img src="../images/sample3.jpg" alt="상품2">
+              <div class="product-name">슬림 핏 셔츠</div>
+            </a>
+            <div class="product-price">79,000원</div>
+          </div>
+
+          <div class="product-card">
+            <a href="product_detail.html">
+              <img src="../images/sample4.jpg" alt="상품2">
+              <div class="product-name">슬림 핏 셔츠</div>
+            </a>
+            <div class="product-price">79,000원</div>
+          </div>
+    <!-- 반복 -->
+  </div>
+</section>
+
+  </main>
+
+<!-- 푸터 -->
   <div id="footer"></div>
 
   <!-- 오버레이 메뉴 -->
@@ -143,5 +208,23 @@
     </form>
   </div>
 </div>
+
+  <script>
+    // header/footer 공통 컴포넌트 불러오기
+    fetch("header.html")
+      .then(res => res.text())
+      .then(data => document.getElementById("header").innerHTML = data);
+
+    fetch("footer.html")
+      .then(res => res.text())
+      .then(data => document.getElementById("footer").innerHTML = data);
+
+    // product_detail.js
+    document.getElementById("add-to-cart")?.addEventListener("click", () => {
+    // 나중엔 실제 장바구니에 데이터 저장 추가 가능
+    location.href = "cart.html";  // 또는 basketList.html
+});
+
+  </script>
 </body>
 </html>
